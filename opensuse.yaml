@@ -1,0 +1,49 @@
+---
+- name: Configure OpenSuse Tumbleweed
+  hosts: localhost
+  gather_facts: true
+  become: true
+
+  vars:
+    package_list:
+      - aisleriot
+      - aisleriot-themes
+      - code
+      - elementary-icon-theme
+      - elementary-xfce-icon-theme
+      - google-chrome-stable
+      - htop
+      - mate-themes
+      - mc
+      - pinta
+      - steam
+      - telegram-desktop
+      - terraform
+      - vokoscreenNG
+      - xfce4-sensors-plugin
+      - xfce4-systemload-plugin
+      - xfce4-weather-plugin
+       
+  tasks:
+  - name: Install Key for VSC
+    ansible.builtin.rpm_key:
+      state: present
+      key: https://packages.microsoft.com/keys/microsoft.asc  
+  
+  - name: Install Visual Studio Code Repository
+    zypper_repository:
+      name: Visual Studio Code
+      repo: 'https://packages.microsoft.com/yumrepos/vscode'
+      auto_import_keys: yes
+
+  - name: Install Google Chrome Repository
+    zypper_repository:
+      name: Google Chrome
+      repo: 'https://dl.google.com/linux/chrome/rpm/stable/x86_64'
+      auto_import_keys: yes
+
+  - name: Install packages
+    zypper:
+      name: "{{item}}"
+      state: latest
+    loop: "{{package_list}}"
