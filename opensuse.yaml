@@ -9,13 +9,14 @@
       - aisleriot
       - aisleriot-themes
       - code
-      - elementary-icon-theme
       - elementary-xfce-icon-theme
+      - galculator
       - google-chrome-stable
       - htop
       - mate-themes
       - mc
       - pinta
+      - remmina
       - steam
       - telegram-desktop
       - terraform
