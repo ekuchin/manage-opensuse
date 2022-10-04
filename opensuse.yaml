@@ -11,6 +11,7 @@
       - code
       - elementary-xfce-icon-theme
       - galculator
+      - git
       - google-chrome-stable
       - htop
       - mate-themes
