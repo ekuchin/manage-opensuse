@@ -23,6 +23,7 @@
       - libavformat57
       - libavdevice56
       - libavdevice57
+      - maven
       - mate-themes
       - mc
       - nodejs18
