@@ -10,17 +10,28 @@
       - aisleriot-themes
       - code
       - elementary-xfce-icon-theme
+      - ffmpeg-4
       - galculator
       - git
       - google-chrome-stable
       - htop
+      - java-11-openjdk-devel
+      - java-17-openjdk-devel
+      - libavcodec56
+      - libavcodec57
+      - libavformat56
+      - libavformat57
+      - libavdevice56
+      - libavdevice57
       - mate-themes
       - mc
+      - nodejs18
       - pinta
       - remmina
       - steam
       - telegram-desktop
       - terraform
+      - vlc
       - vokoscreenNG
       - xfce4-sensors-plugin
       - xfce4-systemload-plugin
@@ -32,6 +43,12 @@
       state: present
       key: https://packages.microsoft.com/keys/microsoft.asc  
   
+  - name: Install Packman Repository
+    zypper_repository:
+      name: Packman
+      repo: 'http://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/'
+      auto_import_keys: yes
+
   - name: Install Visual Studio Code Repository
     zypper_repository:
       name: Visual Studio Code
